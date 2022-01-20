@@ -1,11 +1,7 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-import type { NextApiHandler, NextApiRequest, NextApiResponse } from "next";
-import { Example } from "../../libs/types";
-
-export default function handler(
-  req: NextApiRequest,
-  res: NextApiResponse<Example>,
-  han: NextApiHandler<NextApiHandler>
-) {
-  res.status(200).json({ name: "hello" });
-}
+import type { NextApiResponse } from "next";
+import { fetchRickMorty } from "../../libs/rickMorty";
+export default async (_, res: NextApiResponse) => {
+  const response = await fetchRickMorty();
+  const datas = response.data;
+  res.status(200).json(datas);
+};
