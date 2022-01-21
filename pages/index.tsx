@@ -4,7 +4,7 @@ import useSWR from "swr";
 import fetcher from "../libs/fetcher";
 import { RickMorty } from "../libs/types";
 const Home: NextPage = () => {
-  const { data } = useSWR<RickMorty>(`/api/example`, fetcher);
+  const { data } = useSWR<RickMorty>(`/api/rickmorty`, fetcher);
   return (
     <>
       <div className="flex justify-center items-center overflow-y-auto">
